@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="global.css" />
+    <title>Svelte Benchmark - Big Table</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+
+  <body>
+    <h1>Rendering Dynamic Big Table</h1>
+    <p>
+      Reference:
+      <a href="http://insin.github.io/ui-lib-samples/large-datasets/index.html">insin/ui-lib-samples/large-datasets</a>
+    </p>
+
+    <div id="app"></div>
+  </body>
+  <script defer>
+    var ROWS = 1000;
+    var COLS = 10;
+    var OPTIMIZED = window.location.hash === '#optimized';
+
+    window.onhashchange = function() {
+      window.location.reload();
+    };
+
+    function generateGrid(rowCount, columnCount) {
+      var valuePoints = [
+        'Daenerys',
+        'Jon',
+        'Sansa',
+        'Arya',
+        'Stannis',
+        'Gregor',
+        'Tyrion',
+        'Theon',
+        'Joffrey',
+        'Ramsay',
+        'Cersei',
+        'Bran',
+        'Margaery',
+        'Melisandre',
+        'Daario',
+        'Jamie',
+        'Eddard',
+        'Myrcella',
+        'Robb',
+        'Jorah',
+        'Petyr',
+        'Tommen',
+        'Sandor',
+        'Oberyn',
+        'Drogo',
+        'Ygritte'
+      ];
+      var valueIndex = 0;
+      var grid = [];
+      for (var r = 0; r < rowCount; r++) {
+        var row = {
+          id: r,
+          items: []
+        };
+        for (var c = 0; c < columnCount; c++) {
+          row.items.push({
+            id: r + '-' + c,
+            value: valuePoints[valueIndex]
+          });
+          if (++valueIndex >= valuePoints.length) {
+            valueIndex = 0;
+          }
+        }
+        grid.push(row);
+      }
+      return OPTIMIZED ? Object.freeze(grid) : grid;
+    }
+    var grid = generateGrid(ROWS, COLS);
+    var s = window.performance.now();
+    console.profile('init');
+  </script>
+
+  <script defer src="/bundle.js"></script>
+  <script defer>
+    console.profileEnd('a');
+    setTimeout(function() {
+      app.msg = 'initial render took: ' + (window.performance.now() - s).toFixed(2) + 'ms';
+    }, 0);
+  </script>
+</html>

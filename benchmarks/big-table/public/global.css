@@ -1,0 +1,295 @@
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  color: #444;
+  margin: 0;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
+    sans-serif;
+}
+
+a {
+  color: #ff3e00;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+label {
+  display: block;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.4em;
+  margin: 0 0 0.5em 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+input:disabled {
+  color: #ccc;
+}
+
+input[type='range'] {
+  height: 0;
+}
+
+button {
+  color: #333;
+  background-color: #f4f4f4;
+  outline: none;
+}
+
+button:active {
+  background-color: #ddd;
+}
+
+button:focus {
+  border-color: #666;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+ul,
+ol {
+  padding-left: 2em;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li > p {
+  margin-top: 16px;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+table th {
+  font-weight: bold;
+}
+
+table th,
+table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+img {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+}
+
+code:before,
+code:after {
+  letter-spacing: -0.2em;
+  content: '\00a0';
+}
+
+pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.highlight {
+  margin-bottom: 16px;
+}
+
+.highlight pre,
+pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+pre {
+  word-wrap: normal;
+}
+
+pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+pre code:before,
+pre code:after {
+  content: normal;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.task-list-item {
+  list-style-type: none;
+}
+
+.task-list-item + .task-list-item {
+  margin-top: 3px;
+}
+
+.task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+:checked + .radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+
+form {
+  margin-bottom: 15px;
+}
+
+td.hidden {
+  color: rgb(148, 144, 144);
+}
+
+table.filtered td.item {
+  background-color: #ffffbf;
+}
+
+table.filtered td.item.hidden {
+  background-color: transparent;
+}
+
+table.filtered td.item:not(.hidden) {
+  background-color: #d0f35b;
+}
