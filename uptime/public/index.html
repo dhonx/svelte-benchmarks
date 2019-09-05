@@ -1,18 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset='utf8'>
-	<meta name='viewport' content='width=device-width'>
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width" />
 
-	<title>Svelte app</title>
+    <title>Svelte Benchmarks - Uptime</title>
 
-	<link rel='icon' type='image/png' href='/favicon.png'>
-	<link rel='stylesheet' href='/global.css'>
-	<link rel='stylesheet' href='/bundle.css'>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="global.css" />
+  </head>
 
-	<script defer src='/bundle.js'></script>
-</head>
+  <body>
+    <h1>Svelte Benchmarks - Uptime</h1>
+    <p>
+      Reference:
+      <a href="https://github.com/tildeio/glimmer/blob/master/packages/glimmer-demos/lib/uptime.ts"
+        >Ember Glimmer 2 demo</a
+      >
+    </p>
+    <div id="app"></div>
+  </body>
+  <script>
+    function generateServer(name) {
+      var days = [];
+      for (var i = 0; i <= 364; i++) {
+        var up = Math.random() > 0.2;
+        days.push({ number: i, up });
+      }
+      return { name, days };
+    }
+    
+    function generateServers() {
+      return [
+        // generateServer("Svelte's Server"),
+        // generateServer("Sapper's Server"),
+        generateServer("Rich's Server"),
+        generateServer("Conduitry's Server"),
+        generateServer("Wright's Server")
+      ];
+    }
 
-<body>
-</body>
+    var s = window.performance.now();
+  </script>
+  <script src="/bundle.js"></script>
+  <script>
+    console.log('initial render: ' + (window.performance.now() - s).toFixed(2) + 'ms');
+
+    var fpsMeter = {
+      alpha: 2 / 121,
+      lastValue: null,
+      push(dataPoint) {
+        if (this.lastValue) {
+          return (this.lastValue = this.lastValue + this.alpha * (dataPoint - this.lastValue));
+        } else {
+          return (this.lastValue = dataPoint);
+        }
+      }
+    };
+    var timeoutId;
+    var lastFrame = null;
+    function update() {
+      var thisFrame = window.performance.now();
+      if (lastFrame) {
+        app.fps = Math.round(fpsMeter.push(1000 / (thisFrame - lastFrame)));
+      }
+      app.servers = Object.freeze(generateServers());
+      timeoutId = setTimeout(update, 0); // not using rAF because that limits us to 60fps!
+      lastFrame = thisFrame;
+    }
+  </script>
 </html>
