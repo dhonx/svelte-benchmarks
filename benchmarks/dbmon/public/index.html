@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="global.css" />
+    <title>Svelte Benchmark - dbmon</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+
+  <body>
+    <h1>Svelte Benchmark - dbmon</h1>
+    <p>Reference: <a href="http://mathieuancelin.github.io/js-repaint-perfs/">js-repaint-perfs</a></p>
+    <div id="app"></div>
+  </body>
+
+  <script src="ENV.js"></script>
+  <script src="lib/memory-stats.js"></script>
+  <script src="lib/monitor.js"></script>
+  <script src="bundle.js"></script>
+  <script>
+    function loadSamples() {
+      app.databases = ENV.generateData().toArray();
+      Monitoring.renderRate.ping();
+      setTimeout(loadSamples, ENV.timeout);
+    }
+    loadSamples();
+  </script>
+</html>
