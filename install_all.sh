@@ -8,3 +8,6 @@ cd ..
 
 cd './uptime' && npm install;
 cd ..
+
+cd './svg' && npm install;
+cd ..
