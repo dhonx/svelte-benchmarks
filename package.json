@@ -4,7 +4,7 @@
   "description": "List of benchmark of Svelte that maybe you wanna try 🙌",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "./install_all.sh"
   },
   "repository": {
     "type": "git",
