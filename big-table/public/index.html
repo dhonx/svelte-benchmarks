@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <h1>Rendering Dynamic Big Table</h1>
+    <h1>Svelte Benchmark - Rendering Dynamic Big Table</h1>
     <p>
       Reference:
       <a href="http://insin.github.io/ui-lib-samples/large-datasets/index.html">insin/ui-lib-samples/large-datasets</a>
@@ -17,7 +17,7 @@
 
     <div id="app"></div>
   </body>
-  <script defer>
+  <script>
     var ROWS = 1000;
     var COLS = 10;
     var OPTIMIZED = window.location.hash === '#optimized';
@@ -83,5 +83,5 @@
     console.profile('init');
   </script>
 
-  <script defer src="/bundle.js"></script>
+  <script src="/bundle.js"></script>
 </html>
