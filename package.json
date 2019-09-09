@@ -1,0 +1,24 @@
+{
+  "name": "svelte-benchmarks",
+  "version": "1.0.0",
+  "description": "List of benchmark of Svelte that maybe you wanna try 🙌",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donnisnoni95/svelte-benchmarks.git"
+  },
+  "keywords": [
+    "svelte",
+    "benchmark",
+    "performance"
+  ],
+  "author": "Don Alfons Nisnoni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/donnisnoni95/svelte-benchmarks/issues"
+  },
+  "homepage": "https://github.com/donnisnoni95/svelte-benchmarks#readme"
+}
