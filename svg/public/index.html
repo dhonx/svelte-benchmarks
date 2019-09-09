@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Svelte Benchmark - SVG</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/bundle.css" />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      svg {
+        width: 800px;
+        height: 600px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Svelte Benchmark - SVG</h1>
+
+    <div id="app"></div>
+
+    <script src="https://cdn.jsdelivr.net/stats.js/r11/stats.min.js"></script>
+    <script>
+      var stats = new Stats();
+      stats.setMode(0);
+      stats.domElement.style.position = "absolute";
+      stats.domElement.style.right = "0px";
+      stats.domElement.style.top = "0px";
+      document.body.appendChild(stats.domElement);
+      var WIDTH = 800;
+      var HEIGHT = 600;
+
+      function createModel(count) {
+        var points = [];
+        for (var i = 0; i < count; ++i) {
+          points.push({
+            x: Math.random() * WIDTH,
+            y: Math.random() * HEIGHT,
+            vx: Math.random() * 4 - 2,
+            vy: Math.random() * 4 - 2
+          });
+        }
+        return {
+          points: points,
+          step: step
+        };
+        function step() {
+          points.forEach(move);
+        }
+        function move(p) {
+          if (p.x > WIDTH || p.x < 0) p.vx *= -1;
+          if (p.y > HEIGHT || p.y < 0) p.vy *= -1;
+          p.y += p.vy;
+          p.x += p.vx;
+        }
+      }
+    </script>
+    <script defer src="bundle.js"></script>
+  </body>
+</html>
