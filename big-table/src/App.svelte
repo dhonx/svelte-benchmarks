@@ -11,11 +11,10 @@
   onMount(async () => {
     console.profileEnd('a');
     await tick();
-    msg = 'initial render took: ' + (window.performance.now() - s).toFixed(2) + 'ms';
+    msg = `initial render took: {(window.performance.now() - s).toFixed(2)} ms`;
   });
 
   function matches(item) {
-    item = item;
     return item.value.toLowerCase().indexOf(filter.toLowerCase()) > -1;
   }
 
