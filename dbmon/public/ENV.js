@@ -184,8 +184,8 @@ var ENV =
       }
     }
 
-    var body = document.querySelector('body');
-    var theFirstChild = body.firstChild;
+    var app = document.querySelector('#app');
+    var theFirstChild = app.firstChild;
 
     var sliderContainer = document.createElement('div');
     sliderContainer.style.cssText = 'display: flex';
@@ -200,7 +200,7 @@ var ENV =
     });
     sliderContainer.appendChild(text);
     sliderContainer.appendChild(slider);
-    body.insertBefore(sliderContainer, theFirstChild);
+    app.insertBefore(sliderContainer, theFirstChild);
 
     return {
       generateData: getData,
