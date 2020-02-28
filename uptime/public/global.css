@@ -21,8 +21,8 @@ body {
   margin: 0 auto;
   width: 50%;
   padding: 5px 10px;
-  background-color: #f0ecec7a;
-  border-radius: 5px
+  border: 1px solid #e2dfdf;
+  border-radius: 5px;
 }
 .server-uptime + .server-uptime {
   margin: 15px auto 0 auto;
